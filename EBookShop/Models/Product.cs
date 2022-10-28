@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using Eshop.Models;
+using EBookShop.Models;
 
 namespace EBookShop.Models
 {
