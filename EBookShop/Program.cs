@@ -2,6 +2,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "MySession";
+    options.IdleTimeout=new TimeSpan(15,0,0,0);  
+});
 
 var app = builder.Build();
 
