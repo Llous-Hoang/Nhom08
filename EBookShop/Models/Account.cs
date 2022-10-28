@@ -28,8 +28,8 @@ namespace EBookShop.Models
         [DisplayName("Địa chỉ")]
         public string address { get; set; }
 
-        //???? Tìm hiểu
-        public string Image { get; set; }
+        [DisplayName("Ảnh đại diện")]
+        public string avatar { get; set; }
 
         [DisplayName("Là admin")]
         [DefaultValue(true)]
