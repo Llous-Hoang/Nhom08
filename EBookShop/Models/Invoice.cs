@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using EBookShop.Models;
 
-namespace Eshop.Models
+namespace EBookShop.Models
 {
     public class Invoice
     {

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using EBookShop.Models;
 
 namespace EBookShop.Models
 {
@@ -39,6 +40,11 @@ namespace EBookShop.Models
         [DefaultValue(true)]
         public bool isActive { get; set; } = true ;
 
+        // Collection reference property cho khóa ngoại từ Invoice
+        public List<Invoice> Invoices { get; set; }
 
+        // Collection reference property cho khóa ngoại từ Cart
+        public List<Cart> Carts { get; set; }
     }
 }
+
