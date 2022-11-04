@@ -29,6 +29,11 @@ namespace EBookShop.Models
         [DisplayName("Địa chỉ")]
         public string address { get; set; }
 
+        [DisplayName("Họ và tên")]
+        [Required(ErrorMessage = "{0} không được bỏ trống")]
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "{0} từ 6-50 kí tự")]
+        public string fullname { get; set; }
+
         [DisplayName("Ảnh đại diện")]
         public string avatar { get; set; }
 
