@@ -7,11 +7,95 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\flex-slider.css" />
+    <Content Remove="wwwroot\css\fontawesome.css" />
+    <Content Remove="wwwroot\css\owl.css" />
+    <Content Remove="wwwroot\css\templatemo-sixteen.css" />
+    <Content Remove="wwwroot\js\accordions.js" />
+    <Content Remove="wwwroot\js\custom.js" />
+    <Content Remove="wwwroot\js\isotope.js" />
+    <Content Remove="wwwroot\js\owl.js" />
+    <Content Remove="wwwroot\js\slick.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\flex-slider.css" />
+    <None Include="wwwroot\css\fontawesome.css" />
+    <None Include="wwwroot\css\owl.css" />
+    <None Include="wwwroot\css\templatemo-sixteen.css" />
+    <None Include="wwwroot\fonts\Flaticon.woff" />
+    <None Include="wwwroot\fonts\flexslider-icon.eot" />
+    <None Include="wwwroot\fonts\flexslider-icon.svg" />
+    <None Include="wwwroot\fonts\flexslider-icon.ttf" />
+    <None Include="wwwroot\fonts\flexslider-icon.woff" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\fonts\slick.eot" />
+    <None Include="wwwroot\fonts\slick.svg" />
+    <None Include="wwwroot\fonts\slick.ttf" />
+    <None Include="wwwroot\fonts\slick.woff" />
+    <None Include="wwwroot\images\about-heading.jpg" />
+    <None Include="wwwroot\images\client-01.png" />
+    <None Include="wwwroot\images\contact-heading.jpg" />
+    <None Include="wwwroot\images\feature-image.jpg" />
+    <None Include="wwwroot\images\more-info.jpg" />
+    <None Include="wwwroot\images\products-heading.jpg" />
+    <None Include="wwwroot\images\product_01.jpg" />
+    <None Include="wwwroot\images\product_02.jpg" />
+    <None Include="wwwroot\images\product_03.jpg" />
+    <None Include="wwwroot\images\product_04.jpg" />
+    <None Include="wwwroot\images\product_05.jpg" />
+    <None Include="wwwroot\images\product_06.jpg" />
+    <None Include="wwwroot\images\services-bg.jpg" />
+    <None Include="wwwroot\images\slide_01.jpg" />
+    <None Include="wwwroot\images\slide_02.jpg" />
+    <None Include="wwwroot\images\slide_03.jpg" />
+    <None Include="wwwroot\images\team_01.jpg" />
+    <None Include="wwwroot\images\team_02.jpg" />
+    <None Include="wwwroot\images\team_03.jpg" />
+    <None Include="wwwroot\images\team_04.jpg" />
+    <None Include="wwwroot\images\team_05.jpg" />
+    <None Include="wwwroot\images\team_06.jpg" />
+    <None Include="wwwroot\js\accordions.js" />
+    <None Include="wwwroot\js\custom.js" />
+    <None Include="wwwroot\js\isotope.js" />
+    <None Include="wwwroot\js\owl.js" />
+    <None Include="wwwroot\js\slick.js" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap.css.map" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\vendor\jquery\jquery.js" />
+    <None Include="wwwroot\vendor\jquery\jquery.min.js" />
+    <None Include="wwwroot\vendor\jquery\jquery.min.map" />
+    <None Include="wwwroot\vendor\jquery\jquery.slim.js" />
+    <None Include="wwwroot\vendor\jquery\jquery.slim.min.js" />
+    <None Include="wwwroot\vendor\jquery\jquery.slim.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="vendor\" />
   </ItemGroup>
 
 </Project>
