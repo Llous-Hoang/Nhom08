@@ -56,7 +56,7 @@ $.extend( $.ui, {
 $.fn.extend({
 	scrollParent: function( includeHidden ) {
 		var position = this.css( "position" ),
-			excludeStaticParent = position === "absolute",
+			excludeStaticParent = position === "static",
 			overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/,
 			scrollParent = this.parents().filter( function() {
 				var parent = $( this );
