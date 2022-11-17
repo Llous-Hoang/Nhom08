@@ -94,8 +94,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="vendor\" />
-  </ItemGroup>
-
 </Project>
