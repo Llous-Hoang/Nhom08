@@ -1,14 +1,6 @@
-﻿@model Account
 
-<form asp-action="Login">
-    <label asp-for="username"></label>
-    <input asp-for="username" />
-    <label asp-for="password"></label>
-    <input asp-for="password" />
-    <button>Login</button>
-    <p class="text-danger">@ViewBag.ErrorMsg</p>
-</form>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,7 +38,7 @@
                         <input type="submit" value="Đăng Nhập">
                     </div>
                     <div class="input-form">
-                        <p>Bạn Chưa Có Tài Khoản? <a href="~/Accounts/register">Đăng Ký</a></p>
+
                     </div>
                 </form>
                 <h3>Đăng Nhập Bằng Mạng Xã Hội</h3>
