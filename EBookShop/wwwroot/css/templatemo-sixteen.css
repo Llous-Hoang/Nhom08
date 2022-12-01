@@ -218,6 +218,20 @@ header {
 header .navbar {
 	padding: 17px 0px;
 }
+/*
+header .navbar-collapse .nav-item .menu{
+	list-style:none;
+	position:relative;
+	opacity: 0;
+	transition:0.4s;
+}
+
+	header .navbar-collapse .nav-item .menu:hover {
+		position: absolute;
+		opacity: 1;
+		transition: 0.4s;
+	}*/
+
 .background-header .navbar {
 	padding: 17px 0px;
 }
