@@ -98,6 +98,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
 
 </Project>
