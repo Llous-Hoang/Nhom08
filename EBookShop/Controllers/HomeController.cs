@@ -1,32 +1,58 @@
-﻿using EBookShop.Models;
+﻿using EBookShop.Data;
+using EBookShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq;
 
 namespace EBookShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
+
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
+
+        private readonly EBookShopContext _context;
+
+        private readonly IWebHostEnvironment _environment;
+
+        public HomeController(EBookShopContext context, IWebHostEnvironment environment)
         {
-            _logger = logger;
+            _context = context;
+            _environment = environment;
         }
 
-        public IActionResult Index()
+        // GET: Products
+        public async Task<IActionResult> Index(int p = 1)
         {
-            return View();
+            var eshopContext = _context.Products.Include(p => p.ProductType);
+
+            return View(await eshopContext.ToListAsync());
         }
 
-        public IActionResult Privacy()
+        private bool ProductExists(int id)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

@@ -3,17 +3,16 @@ using EBookShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace EBookShop.Controllers
 {
-    public class ProductsController : Controller
+    public class AdminController : Controller
     {
         private readonly EBookShopContext _context;
 
         private readonly IWebHostEnvironment _environment;
 
-        public ProductsController(EBookShopContext context, IWebHostEnvironment environment)
+        public AdminController(EBookShopContext context, IWebHostEnvironment environment)
         {
             _context = context;
             _environment = environment;
@@ -25,24 +24,6 @@ namespace EBookShop.Controllers
             var eshopContext = _context.Products.Include(p => p.ProductType);
 
             return View(await eshopContext.ToListAsync());
-        }
-
-        public async Task<IActionResult> Details(int? id)
-        {
-            HttpContext.Session.Clear();
-            if (id == null || _context.Products == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products
-                .Include(p => p.ProductType)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            return View(product);
         }
 
         public IActionResult Create()
@@ -167,5 +148,6 @@ namespace EBookShop.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
+
     }
 }
