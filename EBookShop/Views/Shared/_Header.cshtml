@@ -1,8 +1,8 @@
 ﻿
-<header style="position: static;">
+<header class="" @*style="position: static;"*@>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="~/Home/Index"><h2>G8 <em>BookStore</em></h2></a>
+            <a class="navbar-brand" href="~/Home/Index"><h2>GEight <em>BookStore</em></h2></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,6 +19,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Types</a>
+                        @Html.Partial("_dropdown")
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="~/Carts">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
