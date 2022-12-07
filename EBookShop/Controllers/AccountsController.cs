@@ -135,7 +135,7 @@ namespace EBookShop.Controllers
         {
             if (_context.Accounts == null)
             {
-                return Problem("Entity set 'EshopContext.Account'  is null.");
+                return Problem("Entity set 'EBookShopContext.Account'  is null.");
             }
             var account = await _context.Accounts.FindAsync(id);
             if (account != null)

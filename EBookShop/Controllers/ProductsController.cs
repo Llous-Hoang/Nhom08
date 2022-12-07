@@ -141,7 +141,7 @@ namespace EBookShop.Controllers
         {
             if (_context.Products == null)
             {
-                return Problem("Entity set 'EshopContext.Products'  is null.");
+                return Problem("Entity set 'EBookShopContext.Products'  is null.");
             }
             var product = await _context.Products.FindAsync(id);
             if (product != null)
