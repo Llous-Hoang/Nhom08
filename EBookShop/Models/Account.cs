@@ -6,6 +6,7 @@ namespace EBookShop.Models
 {
     public class Account
     {
+        public static object Configuration { get; internal set; }
         public int Id { get; set; }
 
         [DisplayName("Tên đăng nhập")]

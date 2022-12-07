@@ -1,14 +1,14 @@
 ﻿using EBookShop.Models;
-
 using Microsoft.EntityFrameworkCore;
 
 namespace EBookShop.Data
 {
-    public class EBookShopContext : DbContext
+    public partial class EBookShopContext : DbContext
     {
+
         public EBookShopContext(DbContextOptions<EBookShopContext>options):base (options)
         {
-
+            
         }
         public DbSet<Account> Accounts { get; set; } = default!;
 
