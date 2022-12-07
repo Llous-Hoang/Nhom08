@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EBookShop.Data;
 using Microsoft.EntityFrameworkCore;
+using EBookShop.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EBookShop.Areas.Admin.Controllers
 {
@@ -18,6 +20,45 @@ namespace EBookShop.Areas.Admin.Controllers
             var products = _context.Products;
             return View(products);
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            HttpContext.Session.Clear();
+            if (id == null || _context.Products == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Products
+                .Include(p => p.ProductType)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        public IActionResult Create()
+        {
+            ViewData["ProductTypeId"] = new SelectList(_context.ProductTypes, "Id", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,SKU,Name,Description,Price,Stock,ProductTypeId,Image,Status")] Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ProductTypeId"] = new SelectList(_context.ProductTypes, "Id", "Name", product.ProductTypeId);
+            return View(product);
+        }
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Products == null)

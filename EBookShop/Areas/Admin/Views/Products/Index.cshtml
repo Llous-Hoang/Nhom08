@@ -1,25 +1,6 @@
 ﻿@model IEnumerable<EBookShop.Models.Product>
-
-@{
-    ViewData["Title"] = "Index";
-}
-
-@for (int i = 1; i <= 4; i++)
-{
-    <a asp-action="Index" asp-route-p="@i">@i</a>
-}
-
-@ViewBag.Username
-<br />
-@ViewBag.Age
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-light">
+    <thead class="table table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.SKU)
@@ -84,9 +65,11 @@
                         <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Are you sure?');">
                             <button class="btn btn-danger">Delete</button>
                         </form>
-                   
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<form asp-action="Create">
+    <button class="btn btn-success">Add New</button>
+</form>

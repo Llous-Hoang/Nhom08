@@ -139,7 +139,7 @@ namespace EBookShop.Controllers
         {
             if (_context.InvoiceDetails == null)
             {
-                return Problem("Entity set 'EshopContext.InvoiceDetails'  is null.");
+                return Problem("Entity set 'EBookShopContext.InvoiceDetails'  is null.");
             }
             var invoiceDetail = await _context.InvoiceDetails.FindAsync(id);
             if (invoiceDetail != null)
