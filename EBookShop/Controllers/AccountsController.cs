@@ -174,7 +174,7 @@ namespace EBookShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string username, string password)
+        public IActionResult Register(string username, string password , string fullname , string email, string phone)
         {
             var account = _context.Accounts.FirstOrDefault(a => a.username == username && a.password == password);
             if (account != null)
