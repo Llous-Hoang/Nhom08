@@ -34,7 +34,7 @@
                         {
                         <div class="col-lg-4 col-md-4 all des">
                             <div class="product-item">
-                                    <a href="#"><img src="/images/Ajin1.jpg" alt=""></a>
+                                    <a asp-action="Detail" asp-route-id="@item.Id"> <img src="~/images/@item.Image" alt="Hình ảnh minh họa"></a>
                                 <div class="down-content">
                                     <div>
                                         <div style="display:flex"><a href="#"><h4>@Html.DisplayFor(modelItem => item.Name)</h4></a></div>
