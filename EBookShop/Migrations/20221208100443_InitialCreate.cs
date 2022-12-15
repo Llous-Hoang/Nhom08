@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EBookShop.Migrations
 {
-    public partial class fulldb : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,7 @@ namespace EBookShop.Migrations
                     email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    fullname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     isAdmin = table.Column<bool>(type: "bit", nullable: false),
                     isActive = table.Column<bool>(type: "bit", nullable: false)

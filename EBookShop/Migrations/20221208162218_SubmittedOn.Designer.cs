@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBookShop.Migrations
 {
     [DbContext(typeof(EBookShopContext))]
-    [Migration("20221028071447_fulldb")]
-    partial class fulldb
+    [Migration("20221208162218_SubmittedOn")]
+    partial class SubmittedOn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,11 @@ namespace EBookShop.Migrations
 
                     b.Property<string>("email")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fullname")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("isActive")
                         .HasColumnType("bit");
@@ -188,6 +193,9 @@ namespace EBookShop.Migrations
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("SubmittedOn")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
