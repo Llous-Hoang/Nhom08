@@ -13,6 +13,10 @@
     </div>
 </div>
 
+<link href="~/css/templatemo-sixteen.css" />
+<link href="~/css/style.css" />
+<link href="~/css/owl.css" />
+<link href="~/css/fontawesome.css" />
 
 <div class="products">
     <div class="container">
@@ -30,28 +34,33 @@
             <div class="col-md-12">
                 <div class="filters-content">
                     <div class="row grid">
+                        
                         @foreach (var item in Model)
                         {
-                        <div class="col-lg-4 col-md-4 all des">
-                            <div class="product-item">
-                                    <a asp-action="Detail" asp-route-id="@item.Id"> <img src="~/images/@item.Image" alt="Hình ảnh minh họa"></a>
-                                <div class="down-content">
-                                    <div>
-                                        <div style="display:flex"><a href="#"><h4>@Html.DisplayFor(modelItem => item.Name)</h4></a></div>
-                                        <div><h6>@Html.DisplayFor(modelItem => item.Price)</h6></div>
+                        <a href="~/Products/Details/@item.Id">
+                                <div class="col-lg-4 col-md-4 all des">
+                                    <div class="product-item">
+                                        @*<a asp-action="Detail" asp-route-id="@item.Id"> <img src="~/images/@item.Image" alt="Hình ảnh minh họa"></a>*@
+                                        <img src="~/images/product/@item.Image" width="70px">
+                                        <div class="down-content">
+                                            <div class="abc">
+                                                <div><a href="#"><h5>@Html.DisplayFor(modelItem => item.Name)</h5></a></div>
+                                                <div><h6>@Html.DisplayFor(modelItem => item.Price)</h6></div>
+                                            </div>
+                                            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                                            <ul class="stars">
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                            <div class="add"><a href=""><button>Thêm vào giỏ hàng</button></a></div>
+                                            <span>Reviews (12)</span>
+                                        </div>
                                     </div>
-                                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                                    <ul class="stars">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                    <span>Reviews (12)</span>
                                 </div>
-                            </div>
-                        </div>
+                        </a>
                         }
                     </div>
                 </div>

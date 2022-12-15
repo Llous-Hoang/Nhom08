@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model EBookShop.Models.Account
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -14,14 +15,14 @@
     <section>
         <!--Bắt Đầu Phần Hình Ảnh-->
         <div class="img-bg">
-            <img src="https://niemvuilaptrinh.ams3.cdn.digitaloceanspaces.com/tao_trang_dang_nhap/hinh_anh_minh_hoa.jpg" alt="Hình Ảnh Minh Họa">
+            <img src="https://img5.thuthuatphanmem.vn/uploads/2021/12/28/anh-nen-doc-sach_012535621.jpg" alt="Hình Ảnh Minh Họa">
         </div>
         <!--Kết Thúc Phần Hình Ảnh-->
         <!--Bắt Đầu Phần Nội Dung-->
         <div class="noi-dung">
             <div class="form">
                 <h2>Trang Đăng Ký</h2>
-                <form action="">
+                <form asp-action="Register">
                     <div class="input-form">
                         <span>Tên Người Dùng</span>
                         <input type="text" name="username">
@@ -55,4 +56,11 @@
         <!--Kết Thúc Phần Nội Dung-->
     </section>
 </body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
 </html>

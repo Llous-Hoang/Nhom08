@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EBookShop.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Security.Cryptography;
+using System.Text;
+using System.Collections.Generic;
 
 namespace EBookShop.Controllers
 {
@@ -43,110 +46,6 @@ namespace EBookShop.Controllers
             return View(account);
         }
 
-        //GET:Accounts/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,username,password,email,phone,address,fullname,isAdmin,isActive")] Account account)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(account);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(account);
-        }
-
-        //Get: Accounts/Edit/Id
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Accounts == null)
-            {
-                return NotFound();
-            }
-
-            var account = await _context.Accounts.FindAsync(id);
-            if (account == null)
-            {
-                return NotFound();
-            }
-            return View(account);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Username,Password,Email,Phone,Address,FullName,IsAdmin,Avatar,Status")] Account account)
-        {
-            if (id != account.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(account);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AccountExists(account.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(account);
-        }
-
-        //Get: Accounts/Delete/Id
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Accounts == null)
-            {
-                return NotFound();
-            }
-
-            var account = await _context.Accounts
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (account == null)
-            {
-                return NotFound();
-            }
-
-            return View(account);
-        }
-
-        //POST: Accounts/Delete/Id
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Accounts == null)
-            {
-                return Problem("Entity set 'EBookShopContext.Account'  is null.");
-            }
-            var account = await _context.Accounts.FindAsync(id);
-            if (account != null)
-            {
-                _context.Accounts.Remove(account);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
         public IActionResult Login()
         {
             return View();
@@ -174,25 +73,21 @@ namespace EBookShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(string username, string password , string fullname , string email, string phone)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([Bind("Id,username,password,email,phone,address,fullname")] Account account)
         {
-            var account = _context.Accounts.FirstOrDefault(a => a.username == username && a.password == password);
-            if (account != null)
+            if (ModelState.IsValid)
             {
-                HttpContext.Session.SetString("username", username);
-                return RedirectToAction("Index", "Home");
+                _context.Add(account);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                ViewBag.ErrorMsg = "Register failed!";
-                return View();
-            }
+            return View(account);
         }
 
         private bool AccountExists(int id)
         {
             return _context.Accounts.Any(e => e.Id == id);
-        }
-
+        } 
     }
 }

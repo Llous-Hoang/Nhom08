@@ -17,33 +17,36 @@
             <th>Số lượng</th>
             <th>Đơn giá</th>
             <th>Thành tiền</th>
-            <th>Chức năng</th>
+            <th>Xóa</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                <img src="~/img/product/@item.Product.Image" style="width: 50px;">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @item.Product.Price.ToString("#,##0")
-            </td>
-            <td>
-                @((item.Product.Price * item.Quantity).ToString("#,##0"))
-            </td>
-            <td>
-                <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Chắc chưa?');">
-                    <button class="btn btn-danger">&times;</button>
-                </form>
-            </td>
-        </tr>
+        <table class="table-light">
+                <thead class="table table-dark">
+                    <tr>
+                        <td>
+                            <img src="~/img/product/@item.Product.Image" style="width: 50px;">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @item.Product.Price.ToString("#,##0")
+                        </td>
+                        <td>
+                            @((item.Product.Price * item.Quantity).ToString("#,##0"))
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </thead>
+        </table>
+        
 }
     </tbody>
     <tfoot>

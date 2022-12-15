@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBookShop.Migrations
 {
     [DbContext(typeof(EBookShopContext))]
-    [Migration("20221104073800_DBFull")]
-    partial class DBFull
+    [Migration("20221208100443_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

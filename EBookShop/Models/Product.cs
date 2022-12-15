@@ -1,11 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using EBookShop.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EBookShop.Models
 {
     public class Product
     {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "{0} không được bỏ trống")]
@@ -29,12 +32,17 @@ namespace EBookShop.Models
 
         public int ProductTypeId { get; set; }
 
+        [DataType(DataType.DateTime)]
+        public DateTime SubmittedOn { get; set; } = DateTime.Now;
+
         // Navigation reference property cho khóa ngoại đến ProductType
         [DisplayName("Loại sản phẩm")]
         public ProductType ProductType { get; set; }
 
         [DisplayName("Ảnh minh họa")]
         public string Image { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
 
         [DisplayName("Còn hiệu lực")]
         [DefaultValue(true)]

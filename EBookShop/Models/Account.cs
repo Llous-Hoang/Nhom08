@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using EBookShop.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EBookShop.Models
 {
@@ -38,9 +39,12 @@ namespace EBookShop.Models
         [DisplayName("Ảnh đại diện")]
         public string avatar { get; set; }
 
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
+
         [DisplayName("Là admin")]
-        [DefaultValue(true)]
-        public bool isAdmin { get; set; } = true;
+        [DefaultValue(false)]
+        public bool isAdmin { get; set; }
 
         [DisplayName("Được kích hoạt")]
         [DefaultValue(true)]

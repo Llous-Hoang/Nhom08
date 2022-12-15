@@ -36,6 +36,8 @@ namespace EBookShop.Controllers
 
         private readonly IWebHostEnvironment _environment;
 
+        
+
         public HomeController(EBookShopContext context, IWebHostEnvironment environment)
         {
             _context = context;
@@ -43,9 +45,10 @@ namespace EBookShop.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(int p = 1)
+        public async Task<IActionResult> Index(int p = 2)
         {
-            var eshopContext = _context.Products.Include(p => p.ProductType);
+            var eshopContext = _context.Products.OrderByDescending(p => p.SubmittedOn).Take(6);
+
 
             return View(await eshopContext.ToListAsync());
         }
