@@ -16,38 +16,32 @@
             <th>Tên SP</th>
             <th>Số lượng</th>
             <th>Đơn giá</th>
-            <th>Thành tiền</th>
             <th>Xóa</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <table class="table-light">
-                <thead class="table table-dark">
-                    <tr>
-                        <td>
-                            <img src="~/img/product/@item.Product.Image" style="width: 50px;">
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
-                        </td>
-                        <td>
-                            @item.Product.Price.ToString("#,##0")
-                        </td>
-                        <td>
-                            @((item.Product.Price * item.Quantity).ToString("#,##0"))
-                        </td>
-                        <td>
-                            
-                        </td>
-                    </tr>
-                </thead>
-        </table>
-        
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/product/@item.Product.Image" width="70px">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @item.Product.Price.ToString("#,##0")
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Bạn có chắc chắn muốn xóa?');">
+                        <a class="fa fa-trash btn btn-danger"></a>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
     <tfoot>
         <tr>
@@ -55,7 +49,7 @@
             <td>@Model.Sum(c => c.Product.Price * c.Quantity).ToString("#,##0")</td>
             <td>
                 <a asp-action="Purchase" class="btn btn-success">Thanh toán</a>
-                <form asp-action="DeleteAll" onsubmit="return confirm('Chắc chưa?');" class="d-inline">
+                <form asp-action="DeleteAll" onsubmit="return confirm('Bạn có chắc chắn muốn xóa ?');" class="d-inline">
                     <button class="btn btn-danger">Xóa hết</button>
                 </form>
             </td>
