@@ -18,7 +18,7 @@ namespace EBookShop.Controllers
         // GET: Carts
         public async Task<IActionResult> Index()
         {
-            string username = "admin";
+            string username = "tinhyeucuatoi";
             var eshopContext = _context.Carts.Include(c => c.Account)
                                              .Include(c => c.Product)
                                              .Where(c => c.Account.username == username);

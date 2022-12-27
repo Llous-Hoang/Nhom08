@@ -155,6 +155,27 @@ namespace EBookShop.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(string username, string password)
+        {
+            var account = _context.Accounts.FirstOrDefault(a => a.username == username && a.password == password);
+            if (account != null)
+            {
+                HttpContext.Session.SetString("username", username);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.ErrorMsg = "Login failed!";
+                return View();
+            }
+        }
+
         private bool AccountExists(int id)
         {
             return _context.Accounts.Any(e => e.Id == id);
